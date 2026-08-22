@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Attendance - Dayflow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Dayflow
+        </div>
+
+        <nav>
+            <a href="employee-dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="leave.html">Leave</a>
+            <a href="payroll.html">Payroll</a>
+            <a href="#" id="logoutButton">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-container">
+
+        <!-- Page Header -->
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    ATTENDANCE MANAGEMENT
+                </p>
+
+                <h1>
+                    Attendance
+                </h1>
+
+                <p>
+                    Track your daily check-in, check-out and attendance records.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Today's Attendance -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Today's Attendance
+                    </h2>
+
+                    <p id="todayDate">
+                        -
+                    </p>
+
+                </div>
+
+                <span
+                    class="status-badge"
+                    id="todayStatus">
+                    Not Checked In
+                </span>
+
+            </div>
+
+
+            <div class="attendance-actions">
+
+                <div class="attendance-time">
+
+                    <span class="info-label">
+                        Check In
+                    </span>
+
+                    <strong id="checkInTime">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="attendance-time">
+
+                    <span class="info-label">
+                        Check Out
+                    </span>
+
+                    <strong id="checkOutTime">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="attendance-buttons">
+
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        id="checkInButton">
+
+                        Check In
+
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="checkOutButton"
+                        disabled>
+
+                        Check Out
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="attendanceMessage"
+                class="form-message"
+                aria-live="polite">
+            </div>
+
+        </section>
+
+
+        <!-- Attendance Summary -->
+        <section>
+
+            <div class="section-title">
+
+                <h2>
+                    Attendance Summary
+                </h2>
+
+                <p>
+                    Your attendance overview
+                </p>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ✅
+                    </span>
+
+                    <div>
+
+                        <strong id="presentCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Present
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ❌
+                    </span>
+
+                    <div>
+
+                        <strong id="absentCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Absent
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        🌓
+                    </span>
+
+                    <div>
+
+                        <strong id="halfDayCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Half Day
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        🏖️
+                    </span>
+
+                    <div>
+
+                        <strong id="leaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Leave
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Attendance Records -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Attendance Records
+                    </h2>
+
+                    <p>
+                        Your daily attendance history
+                    </p>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="attendanceFilter">
+                        Filter
+                    </label>
+
+                    <select id="attendanceFilter">
+
+                        <option value="all">
+                            All
+                        </option>
+
+                        <option value="Present">
+                            Present
+                        </option>
+
+                        <option value="Absent">
+                            Absent
+                        </option>
+
+                        <option value="Half Day">
+                            Half Day
+                        </option>
+
+                        <option value="Leave">
+                            Leave
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Check In
+                            </th>
+
+                            <th>
+                                Check Out
+                            </th>
+
+                            <th>
+                                Working Hours
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="attendanceTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Dayflow HRMS. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/attendance.js"></script>
+
+</body>
+
+</html>

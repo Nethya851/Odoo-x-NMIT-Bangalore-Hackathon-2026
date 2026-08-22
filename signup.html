@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up - Dayflow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Dayflow
+        </div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="login.html">Login</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Sign Up Section -->
+    <main>
+
+        <section class="auth-section">
+
+            <div class="auth-card">
+
+                <div class="auth-header">
+
+                    <p class="eyebrow">
+                        DAYFLOW HRMS
+                    </p>
+
+                    <h1>Create Account</h1>
+
+                    <p>
+                        Create your Dayflow account to get started.
+                    </p>
+
+                </div>
+
+
+                <!-- Sign Up Form -->
+                <form id="signupForm">
+
+                    <!-- Full Name -->
+                    <div class="form-group">
+
+                        <label for="signupName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="signupName"
+                            name="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Employee ID -->
+                    <div class="form-group">
+
+                        <label for="signupEmployeeId">
+                            Employee ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="signupEmployeeId"
+                            name="employeeId"
+                            placeholder="Example: EMP001"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="form-group">
+
+                        <label for="signupEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            name="email"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Role -->
+                    <div class="form-group">
+
+                        <label for="signupRole">
+                            Role
+                        </label>
+
+                        <select
+                            id="signupRole"
+                            name="role"
+                            required
+                        >
+                            <option value="">
+                                Select your role
+                            </option>
+
+                            <option value="employee">
+                                Employee
+                            </option>
+
+                            <option value="admin">
+                                HR / Admin
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group">
+
+                        <label for="signupPassword">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            name="password"
+                            placeholder="Enter your password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            minlength="6"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Message -->
+                    <div
+                        id="signupMessage"
+                        class="form-message"
+                        aria-live="polite">
+                    </div>
+
+
+                    <!-- Submit -->
+                    <button
+                        type="submit"
+                        class="btn btn-primary auth-button"
+                    >
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <div class="auth-footer">
+
+                    <p>
+                        Already have an account?
+                        <a href="login.html">Login</a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Dayflow HRMS. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+
+    <script>
+
+        document
+            .getElementById("signupForm")
+            .addEventListener("submit", function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                        .getElementById("signupName")
+                        .value
+                        .trim();
+
+                const employeeId =
+                    document
+                        .getElementById("signupEmployeeId")
+                        .value
+                        .trim();
+
+                const email =
+                    document
+                        .getElementById("signupEmail")
+                        .value
+                        .trim();
+
+                const role =
+                    document
+                        .getElementById("signupRole")
+                        .value;
+
+                const password =
+                    document
+                        .getElementById("signupPassword")
+                        .value;
+
+                const confirmPassword =
+                    document
+                        .getElementById("confirmPassword")
+                        .value;
+
+                const message =
+                    document
+                        .getElementById("signupMessage");
+
+
+                // Check password match
+                if (password !== confirmPassword) {
+
+                    message.textContent =
+                        "Passwords do not match.";
+
+                    message.className =
+                        "form-message error";
+
+                    return;
+                }
+
+
+                // Create account
+                const result = signupUser(
+                    employeeId,
+                    email,
+                    password,
+                    role,
+                    name
+                );
+
+
+                if (!result.success) {
+
+                    message.textContent =
+                        result.message;
+
+                    message.className =
+                        "form-message error";
+
+                    return;
+                }
+
+
+                message.textContent =
+                    "Account created successfully! Redirecting to login...";
+
+                message.className =
+                    "form-message success";
+
+
+                setTimeout(() => {
+
+                    window.location.href =
+                        "login.html";
+
+                }, 1000);
+
+            });
+
+    </script>
+
+</body>
+</html>

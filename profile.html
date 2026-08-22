@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Profile - Dayflow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Dayflow
+        </div>
+
+        <nav>
+            <a href="employee-dashboard.html">Dashboard</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="leave.html">Leave</a>
+            <a href="payroll.html">Payroll</a>
+            <a href="#" id="logoutButton">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-container">
+
+        <!-- Page Header -->
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    EMPLOYEE PROFILE
+                </p>
+
+                <h1>
+                    My Profile
+                </h1>
+
+                <p>
+                    View and manage your personal and job information.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Profile Card -->
+        <section class="dashboard-card">
+
+            <div class="profile-header">
+
+                <div class="profile-avatar" id="profileAvatar">
+                    👤
+                </div>
+
+                <div>
+
+                    <h2 id="profileName">
+                        Employee
+                    </h2>
+
+                    <p id="profileEmail">
+                        -
+                    </p>
+
+                    <span class="profile-role" id="profileRole">
+                        Employee
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Personal Information -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Personal Information
+                    </h2>
+
+                    <p>
+                        Your basic personal details
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="editPersonalButton">
+
+                    Edit
+
+                </button>
+
+            </div>
+
+
+            <form id="personalInfoForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="employeeId">
+                            Employee ID
+                        </label>
+
+                        <input
+                            type="text"
+                            id="employeeId"
+                            name="employeeId"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter phone number"
+                            readonly
+                        >
+
+                    </div>
+
+
+                    <div class="form-group form-group-full">
+
+                        <label for="address">
+                            Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            rows="3"
+                            placeholder="Enter your address"
+                            readonly
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="profileMessage"
+                    class="form-message"
+                    aria-live="polite">
+                </div>
+
+
+                <div
+                    class="form-actions"
+                    id="personalFormActions"
+                    style="display: none;">
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="cancelPersonalButton">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Save Changes
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Job Information -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Job Information
+                    </h2>
+
+                    <p>
+                        Your employment details
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Department
+                    </span>
+
+                    <strong id="department">
+                        Not assigned
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Job Position
+                    </span>
+
+                    <strong id="jobPosition">
+                        Not assigned
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Joining Date
+                    </span>
+
+                    <strong id="joiningDate">
+                        Not assigned
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Employment Status
+                    </span>
+
+                    <strong id="employmentStatus">
+                        Active
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Salary Information -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Salary Information
+                    </h2>
+
+                    <p>
+                        Your salary structure
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Basic Salary
+                    </span>
+
+                    <strong id="basicSalary">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Allowances
+                    </span>
+
+                    <strong id="allowances">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Deductions
+                    </span>
+
+                    <strong id="deductions">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Net Salary
+                    </span>
+
+                    <strong id="netSalary">
+                        ₹0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Documents -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Documents
+                    </h2>
+
+                    <p>
+                        Employee documents
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="empty-state">
+
+                <span>
+                    📄
+                </span>
+
+                <p>
+                    No documents available.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Dayflow HRMS. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+
+</body>
+
+</html>

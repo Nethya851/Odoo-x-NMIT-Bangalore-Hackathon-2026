@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Dashboard - Dayflow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Dayflow
+        </div>
+
+        <nav>
+            <a href="profile.html">Profile</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="leave.html">Leave</a>
+            <a href="payroll.html">Payroll</a>
+            <a href="#" id="logoutButton">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Dashboard -->
+    <main class="dashboard-container">
+
+        <!-- Welcome -->
+        <section class="dashboard-header">
+
+            <div>
+                <p class="eyebrow">
+                    EMPLOYEE DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome, <span class="employee-name">Employee</span>
+                </h1>
+
+                <p>
+                    Manage your profile, attendance, leave and payroll.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- Employee Information -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Employee Information</h2>
+
+                    <p>
+                        Your basic account information
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Name
+                    </span>
+
+                    <strong class="employee-name">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Employee ID
+                    </span>
+
+                    <strong class="employee-id">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Email
+                    </span>
+
+                    <strong class="employee-email">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Role
+                    </span>
+
+                    <strong>
+                        Employee
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section>
+
+            <div class="section-title">
+
+                <h2>Quick Actions</h2>
+
+                <p>
+                    Access your HR features
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <!-- Profile -->
+                <button
+                    class="dashboard-action"
+                    id="profileButton"
+                    type="button">
+
+                    <span class="action-icon">
+                        👤
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            My Profile
+                        </strong>
+
+                        <small>
+                            View and manage your profile
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <!-- Attendance -->
+                <button
+                    class="dashboard-action"
+                    id="attendanceButton"
+                    type="button">
+
+                    <span class="action-icon">
+                        ⏰
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            Attendance
+                        </strong>
+
+                        <small>
+                            Check-in, check-out and view attendance
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <!-- Leave -->
+                <button
+                    class="dashboard-action"
+                    id="leaveButton"
+                    type="button">
+
+                    <span class="action-icon">
+                        🏖️
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            Leave Requests
+                        </strong>
+
+                        <small>
+                            Apply for leave and check status
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <!-- Payroll -->
+                <button
+                    class="dashboard-action"
+                    id="payrollButton"
+                    type="button">
+
+                    <span class="action-icon">
+                        💰
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            Payroll
+                        </strong>
+
+                        <small>
+                            View your salary information
+                        </small>
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Attendance Summary -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Attendance Summary</h2>
+
+                    <p>
+                        Your attendance overview
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ✅
+                    </span>
+
+                    <div>
+
+                        <strong id="presentCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Present
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ❌
+                    </span>
+
+                    <div>
+
+                        <strong id="absentCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Absent
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        🏖️
+                    </span>
+
+                    <div>
+
+                        <strong id="leaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Leave
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Leave Summary -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Leave Summary</h2>
+
+                    <p>
+                        Your current leave request status
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ⏳
+                    </span>
+
+                    <div>
+
+                        <strong id="pendingLeaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Pending
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ✅
+                    </span>
+
+                    <div>
+
+                        <strong id="approvedLeaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Approved
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ❌
+                    </span>
+
+                    <div>
+
+                        <strong id="rejectedLeaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Rejected
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Recent Activity -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Recent Activity</h2>
+
+                    <p>
+                        Your latest HR activities
+                    </p>
+                </div>
+
+            </div>
+
+            <div id="recentActivity">
+
+                <div class="empty-state">
+
+                    <span>
+                        📋
+                    </span>
+
+                    <p>
+                        No recent activity.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Dayflow HRMS. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/employee-dashboard.js"></script>
+
+</body>
+
+</html>

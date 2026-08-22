@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - Dayflow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Dayflow
+        </div>
+
+        <nav>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="profile.html">Employees</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="leave.html">Leave</a>
+            <a href="payroll.html">Payroll</a>
+            <a href="#" id="logoutButton">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main Dashboard -->
+    <main class="dashboard-container">
+
+        <!-- Header -->
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    ADMIN / HR DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome, <span id="adminName">HR Admin</span>
+                </h1>
+
+                <p>
+                    Manage employees, attendance, leave requests and payroll.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Overview -->
+        <section>
+
+            <div class="section-title">
+
+                <h2>
+                    Overview
+                </h2>
+
+                <p>
+                    Current HR management summary
+                </p>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        👥
+                    </span>
+
+                    <div>
+
+                        <strong id="totalEmployees">
+                            0
+                        </strong>
+
+                        <span>
+                            Employees
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ✅
+                    </span>
+
+                    <div>
+
+                        <strong id="totalPresent">
+                            0
+                        </strong>
+
+                        <span>
+                            Present Today
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        🏖️
+                    </span>
+
+                    <div>
+
+                        <strong id="pendingLeaves">
+                            0
+                        </strong>
+
+                        <span>
+                            Pending Leaves
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        💰
+                    </span>
+
+                    <div>
+
+                        <strong id="totalPayroll">
+                            ₹0
+                        </strong>
+
+                        <span>
+                            Payroll
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Quick Actions -->
+        <section>
+
+            <div class="section-title">
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+                <p>
+                    Manage HR operations
+                </p>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <button
+                    type="button"
+                    class="dashboard-action"
+                    id="employeeManagementButton">
+
+                    <span class="action-icon">
+                        👥
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            Employees
+                        </strong>
+
+                        <small>
+                            View and manage employees
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="dashboard-action"
+                    id="adminAttendanceButton">
+
+                    <span class="action-icon">
+                        ⏰
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            Attendance
+                        </strong>
+
+                        <small>
+                            View employee attendance
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="dashboard-action"
+                    id="adminLeaveButton">
+
+                    <span class="action-icon">
+                        🏖️
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            Leave Approvals
+                        </strong>
+
+                        <small>
+                            Review employee leave requests
+                        </small>
+
+                    </span>
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="dashboard-action"
+                    id="adminPayrollButton">
+
+                    <span class="action-icon">
+                        💰
+                    </span>
+
+                    <span class="action-content">
+
+                        <strong>
+                            Payroll
+                        </strong>
+
+                        <small>
+                            Manage employee payroll
+                        </small>
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Employee List -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Employees
+                    </h2>
+
+                    <p>
+                        Employee records
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="employeeTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Leave Requests -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Recent Leave Requests
+                    </h2>
+
+                    <p>
+                        Review pending employee requests
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Employee</th>
+                            <th>Leave Type</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="leaveTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Recent Activity -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Recent Activity
+                    </h2>
+
+                    <p>
+                        Latest HR activities
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="adminRecentActivity">
+
+                <div class="empty-state">
+
+                    <span>
+                        📋
+                    </span>
+
+                    <p>
+                        No recent activity.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Dayflow HRMS. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/admin-dashboard.js"></script>
+
+</body>
+
+</html>

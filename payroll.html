@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Payroll - Dayflow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Dayflow
+        </div>
+
+        <nav>
+            <a href="employee-dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="leave.html">Leave</a>
+            <a href="#" id="logoutButton">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-container">
+
+        <!-- Page Header -->
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    PAYROLL MANAGEMENT
+                </p>
+
+                <h1>
+                    Payroll
+                </h1>
+
+                <p>
+                    View your salary and payroll information.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Current Salary -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Current Salary
+                    </h2>
+
+                    <p>
+                        Your current salary structure
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="salary-highlight">
+
+                <span>
+                    Net Salary
+                </span>
+
+                <strong id="currentNetSalary">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="info-grid">
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Basic Salary
+                    </span>
+
+                    <strong id="currentBasicSalary">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Allowances
+                    </span>
+
+                    <strong id="currentAllowances">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Deductions
+                    </span>
+
+                    <strong id="currentDeductions">
+                        ₹0
+                    </strong>
+
+                </div>
+
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        Payment Status
+                    </span>
+
+                    <strong id="paymentStatus">
+                        Not Available
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Payroll History -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Payroll History
+                    </h2>
+
+                    <p>
+                        View your previous payroll records.
+                    </p>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="payrollYear">
+                        Year
+                    </label>
+
+                    <select id="payrollYear">
+
+                        <option value="all">
+                            All
+                        </option>
+
+                        <option value="2026">
+                            2026
+                        </option>
+
+                        <option value="2025">
+                            2025
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Month
+                            </th>
+
+                            <th>
+                                Basic Salary
+                            </th>
+
+                            <th>
+                                Allowances
+                            </th>
+
+                            <th>
+                                Deductions
+                            </th>
+
+                            <th>
+                                Net Salary
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="payrollTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Payroll Information -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Payroll Information
+                    </h2>
+
+                    <p>
+                        Important information about your salary.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="empty-state" id="payrollInformation">
+
+                <span>
+                    💰
+                </span>
+
+                <p>
+                    Payroll information will appear here once it is available.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Dayflow HRMS. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/payroll.js"></script>
+
+</body>
+
+</html>

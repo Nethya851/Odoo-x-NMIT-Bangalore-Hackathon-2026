@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leave Management - Dayflow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <div class="logo">
+            Dayflow
+        </div>
+
+        <nav>
+            <a href="employee-dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="attendance.html">Attendance</a>
+            <a href="payroll.html">Payroll</a>
+            <a href="#" id="logoutButton">Logout</a>
+        </nav>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="dashboard-container">
+
+        <!-- Page Header -->
+        <section class="dashboard-header">
+
+            <div>
+
+                <p class="eyebrow">
+                    LEAVE MANAGEMENT
+                </p>
+
+                <h1>
+                    Leave Requests
+                </h1>
+
+                <p>
+                    Apply for leave and track the status of your requests.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Apply Leave -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Apply for Leave
+                    </h2>
+
+                    <p>
+                        Submit a new leave request.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form id="leaveForm">
+
+                <div class="form-grid">
+
+                    <!-- Leave Type -->
+                    <div class="form-group">
+
+                        <label for="leaveType">
+                            Leave Type
+                        </label>
+
+                        <select
+                            id="leaveType"
+                            name="leaveType"
+                            required>
+
+                            <option value="">
+                                Select leave type
+                            </option>
+
+                            <option value="Paid Leave">
+                                Paid Leave
+                            </option>
+
+                            <option value="Sick Leave">
+                                Sick Leave
+                            </option>
+
+                            <option value="Casual Leave">
+                                Casual Leave
+                            </option>
+
+                            <option value="Unpaid Leave">
+                                Unpaid Leave
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- From Date -->
+                    <div class="form-group">
+
+                        <label for="fromDate">
+                            From Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="fromDate"
+                            name="fromDate"
+                            required>
+
+                    </div>
+
+
+                    <!-- To Date -->
+                    <div class="form-group">
+
+                        <label for="toDate">
+                            To Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="toDate"
+                            name="toDate"
+                            required>
+
+                    </div>
+
+
+                    <!-- Remarks -->
+                    <div class="form-group form-group-full">
+
+                        <label for="leaveRemarks">
+                            Remarks
+                        </label>
+
+                        <textarea
+                            id="leaveRemarks"
+                            name="remarks"
+                            rows="4"
+                            placeholder="Enter reason or remarks..."
+                            required></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Message -->
+                <div
+                    id="leaveMessage"
+                    class="form-message"
+                    aria-live="polite">
+                </div>
+
+
+                <!-- Submit -->
+                <div class="form-actions">
+
+                    <button
+                        type="reset"
+                        class="btn btn-secondary"
+                        id="clearLeaveButton">
+
+                        Clear
+
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                        Submit Leave Request
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- Leave Summary -->
+        <section>
+
+            <div class="section-title">
+
+                <h2>
+                    Leave Summary
+                </h2>
+
+                <p>
+                    Overview of your leave requests
+                </p>
+
+            </div>
+
+
+            <div class="summary-grid">
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ⏳
+                    </span>
+
+                    <div>
+
+                        <strong id="pendingLeaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Pending
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ✅
+                    </span>
+
+                    <div>
+
+                        <strong id="approvedLeaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Approved
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="summary-item">
+
+                    <span class="summary-icon">
+                        ❌
+                    </span>
+
+                    <div>
+
+                        <strong id="rejectedLeaveCount">
+                            0
+                        </strong>
+
+                        <span>
+                            Rejected
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Leave History -->
+        <section class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Leave History
+                    </h2>
+
+                    <p>
+                        View all your submitted leave requests.
+                    </p>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="leaveStatusFilter">
+                        Filter
+                    </label>
+
+                    <select id="leaveStatusFilter">
+
+                        <option value="all">
+                            All
+                        </option>
+
+                        <option value="Pending">
+                            Pending
+                        </option>
+
+                        <option value="Approved">
+                            Approved
+                        </option>
+
+                        <option value="Rejected">
+                            Rejected
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Leave Type
+                            </th>
+
+                            <th>
+                                From
+                            </th>
+
+                            <th>
+                                To
+                            </th>
+
+                            <th>
+                                Remarks
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="leaveTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- Empty/Notification Area -->
+        <section class="dashboard-card">
+
+            <div
+                id="leaveNotification"
+                class="empty-state">
+
+                <span>
+                    🔔
+                </span>
+
+                <p>
+                    Your leave updates will appear here.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <p>
+            © 2026 Dayflow HRMS. All rights reserved.
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/leave.js"></script>
+
+</body>
+
+</html>
